@@ -8,7 +8,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+import numpy
 import warnings
 from typing import Union
 
@@ -141,7 +141,7 @@ def compute_continous_Dice(
     B_probability_map = y_pred
 
     AB = A_binary * B_probability_map
-    c = np.sum(AB)/max(np.size(AB[AB>0]), 1)
+    c = numpy.sum(AB)/max(numpy.size(AB[AB>0]), 1)
 
     intersection = torch.sum(y * y_pred, dim=reduce_axis)
 
